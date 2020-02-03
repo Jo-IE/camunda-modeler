@@ -149,7 +149,10 @@ export class MultiSheetTab extends CachedComponent {
     }
   }
 
-  handleImport = (error, warnings) => {
+  handleImport = (error, warnings, openFallback) => {
+    if (openFallback) {
+      this.openFallback();
+    }
 
     if (warnings && warnings.length) {
       warnings.forEach(warning => {
